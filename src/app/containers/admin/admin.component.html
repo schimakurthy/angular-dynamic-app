@@ -1,0 +1,13 @@
+<div class="container">
+  <button mat-raised-button color="primary" (click)="addComponent()">
+    Add
+  </button>
+
+  <div *ngIf="sectionConfig">
+    <app-question-data
+      [sectionConfig]="sectionConfig"
+      [sectionData]="sectionData || {}"
+      (sectionDataUpdate)="updateSectionData($event)"
+    ></app-question-data>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="m-2">
+  <ng-container *ngFor="let field of sectionConfig.fields">
+    <app-dynamic-field-host
+      [type]="field.type"
+      [label]="field.label"
+      [control]="getControl(field.name)"
+      [config]="field.config"
+    ></app-dynamic-field-host>
+  </ng-container>
+
+  <ng-container *ngFor="let subSectionConfig of sectionConfig.subsections">
+    <app-question-data
+      [sectionConfig]="subSectionConfig"
+      [sectionData]="getSubSectionData()"
+      (sectionDataUpdate)="updateSectionData($event)"
+    >
+    </app-question-data>
+  </ng-container>
+</div>
